@@ -6,6 +6,7 @@ on:
       - 'feature'
     paths:
       - 'vote/**'
+      - '.github/workflows/ci-vote.yaml'
 
 jobs:
   build:
