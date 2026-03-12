@@ -15,7 +15,7 @@ spec:
         app: vote
     spec:
       containers:
-      - image: dockersamples/examplevotingapp_vote
+      - image: techlatte/vote:feature-0e266
         name: vote
         ports:
         - containerPort: 80
