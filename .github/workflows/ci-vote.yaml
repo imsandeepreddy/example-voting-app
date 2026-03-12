@@ -1,0 +1,28 @@
+name: Build vote and push to docker
+
+on:
+  push:
+    branches:
+      - 'feature'
+  paths:
+    - 'vote/**'
+
+jobs:
+  build:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Docker login
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+    - name: Setup docker buildx
+      uses: docker/setup-buildx-action@v3
+    - name: Build docker image and push to docker hub
+      uses: docker/build-push-action@v6
+      with:
+        context: ./vote
+        push: true
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/vote:latest
