@@ -18,7 +18,7 @@ jobs:
         id: vars
         run: |
           # Get branch name and short hash
-          BRANCH=${GITHUB_REF_name}
+          BRANCH=${GITHUB_REF_NAME}
           SHA_SHORT=$(echo ${GITHUB_SHA} | cut -c1-5)
 
           # save output for use in another steps
