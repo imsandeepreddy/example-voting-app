@@ -15,7 +15,7 @@ spec:
         app: result
     spec:
       containers:
-      - image: dockersamples/examplevotingapp_result
+      - image: techlatte/result:feature-70bbd
         name: result
         ports:
         - containerPort: 80
